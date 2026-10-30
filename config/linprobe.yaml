@@ -1,0 +1,53 @@
+# Linear-probe configs for all datasets. Select with: --config config/linprobe.yaml --cfg-name <dataset>
+# Each entry lists the full union of varying fields (overrides _base_).
+_base_: _base_/linprobe.yaml
+
+ntu60_xsub:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu60/NTU60_CS.npz
+  val_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu60/NTU60_CS.npz
+  model_args:
+    num_classes: 60
+  batch_size: 64
+  lr: 0.003
+
+ntu60_xview:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu60/NTU60_CV.npz
+  val_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu60/NTU60_CV.npz
+  model_args:
+    num_classes: 60
+  batch_size: 64
+  lr: 0.003
+
+ntu120_xsub:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu120/NTU120_CSub.npz
+  val_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu120/NTU120_CSub.npz
+  model_args:
+    num_classes: 120
+  batch_size: 64
+  lr: 0.003
+
+ntu120_xset:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu120/NTU120_CSet.npz
+  val_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu120/NTU120_CSet.npz
+  model_args:
+    num_classes: 120
+  batch_size: 64
+  lr: 0.003
+
+pkuv2_xsub:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/pku_mmd/PKUv2_XSub.npz
+  val_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/pku_mmd/PKUv2_XSub.npz
+  model_args:
+    num_classes: 60
+  batch_size: 128
+  lr: 0.003

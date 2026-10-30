@@ -1,0 +1,6 @@
+torch>=2.0
+timm>=0.9
+numpy
+pyyaml
+scikit-learn
+tensorboard

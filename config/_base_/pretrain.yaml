@@ -1,0 +1,54 @@
+# Pretrain protocol base — shared by all pretrain.yaml configs.
+# Override `train_dataset_args.data_path` (and any per-dataset fields) in the child.
+# data
+dataset: util.datasets.SkeletonDataset
+train_dataset_args:
+  data_path: /data/NTU60_CS.npz   # default; overridden per dataset
+  split: train
+  debug: False
+  random_choose: False
+  random_shift: False
+  random_move: False
+  window_size: 120
+  normalization: False
+  random_rot: True
+  p_interval: [0.5, 1.0]
+  vel: False
+  bone: False
+
+# model
+model: model_amr.PretrainTransformer
+model_args:
+  dim_in: 3
+  dim_feat: 256
+  decoder_dim_feat: 256
+  depth: 8
+  decoder_depth: 5
+  # Decoder cross-attention: sigmoid | sigmoid_scaled (2/L) | softmax.
+  # Alpha and temperature are fixed scalars used only by softmax.
+  decoder_attn_mode: sigmoid
+  decoder_attn_alpha: 1.0
+  decoder_attn_temperature: 1.0
+  num_heads: 8
+  mlp_ratio: 4
+  num_frames: 120
+  num_joints: 25
+  patch_size: 1
+  t_patch_size: 4
+  patch_ratio: 6
+  qkv_bias: True
+  qk_scale: None
+  drop_rate: 0.
+  attn_drop_rate: 0.
+  drop_path_rate: 0.
+  norm_skes_loss: True
+
+# training
+epochs: 400
+warmup_epochs: 20
+batch_size: 128
+lr: 1e-3
+min_lr: 5e-4
+weight_decay: 0.05
+mask_ratio: 0.9
+motion_aware_tau: 0.80

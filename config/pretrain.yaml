@@ -1,0 +1,48 @@
+# Pretrain configs for all datasets. Select with: --config config/pretrain.yaml --cfg-name <dataset>
+# Each entry lists the full union of varying fields (overrides _base_).
+_base_: _base_/pretrain.yaml
+
+ntu60_xsub:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu60/NTU60_CS.npz
+  batch_size: 128
+  lr: 1e-3
+  min_lr: 5e-4
+  mask_ratio: 0.9
+  motion_aware_tau: 0.80
+
+ntu60_xview:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu60/NTU60_CV.npz
+  batch_size: 128
+  lr: 1e-3
+  min_lr: 5e-4
+  mask_ratio: 0.9
+  motion_aware_tau: 0.80
+
+ntu120_xsub:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu120/NTU120_CSub.npz
+  batch_size: 128
+  lr: 1e-3
+  min_lr: 5e-4
+  mask_ratio: 0.9
+  motion_aware_tau: 0.75
+
+ntu120_xset:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/ntu120/NTU120_CSet.npz
+  batch_size: 128
+  lr: 1e-3
+  min_lr: 5e-4
+  mask_ratio: 0.9
+  motion_aware_tau: 0.75
+
+pkuv2_xsub:
+  train_dataset_args:
+    data_path: /mnt/68adf665-0922-4a2b-845d-15471b4d6224/sunshengkai/datasets/skeleton/pku_mmd/PKUv2_XSub.npz
+  batch_size: 64
+  lr: 2e-4
+  min_lr: 1e-4
+  mask_ratio: 0.85
+  motion_aware_tau: 0.80

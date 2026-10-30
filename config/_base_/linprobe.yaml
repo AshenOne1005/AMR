@@ -1,0 +1,52 @@
+# Linear-probe protocol base — shared by all linprobe.yaml configs.
+# Override data_path (train+val), model_args.num_classes, batch_size, lr per dataset.
+# data
+dataset: util.datasets.SkeletonDataset
+train_dataset_args:
+  data_path: /data/NTU60_CS.npz   # default; overridden per dataset
+  split: train
+  debug: False
+  random_choose: False
+  random_shift: False
+  random_move: False
+  window_size: 120
+  normalization: False
+  random_rot: False
+  p_interval: [1.0]
+  vel: False
+  bone: False
+
+val_dataset_args:
+  data_path: /data/NTU60_CS.npz   # default; overridden per dataset
+  split: test
+  debug: False
+  window_size: 120
+  p_interval: [1.0]
+  vel: False
+  bone: False
+
+# model
+model: model_amr.DownstreamTransformer
+model_args:
+  dim_in: 3
+  num_classes: 120
+  dim_feat: 256
+  depth: 8
+  num_heads: 8
+  mlp_ratio: 4
+  num_frames: 120
+  num_joints: 25
+  patch_size: 1
+  t_patch_size: 4
+  qkv_bias: True
+  qk_scale: None
+  drop_rate: 0.
+  attn_drop_rate: 0.
+  drop_path_rate: 0.
+  protocol: linprobe
+
+# training
+epochs: 100
+warmup_epochs: 0
+batch_size: 256
+lr: 0.01
