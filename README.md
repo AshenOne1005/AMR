@@ -126,7 +126,7 @@ CKPT=output/pretrain_ntu60_xsub/checkpoint-399.pth bash scripts/fast_linprobe.sh
 
 ```
 
-Reproduced pretrained checkpoints are available in [`checkpoints/`](checkpoints/README.md).
+Reproduced pretrained checkpoints are available in [`checkpoints/`](https://drive.google.com/drive/folders/1WN_tudS_BlAVF5FaW3dj2tgYcjpBiXmZ?usp=drive_link).
 Their evaluation results (fast linprobe, seed 0, best recorded Top-1 accuracy) are:
 
 | Protocol / checkpoint | Evaluation | Epochs | Top-1 (%) |
